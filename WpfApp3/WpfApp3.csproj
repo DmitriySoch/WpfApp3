@@ -55,6 +55,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coins.cs" />
+    <Compile Include="GameObjects.cs" />
+    <Compile Include="Obstacles.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="MainWidow_1.xaml.cs">
       <DependentUpon>MainWidow_1.xaml</DependentUpon>
     </Compile>

@@ -299,9 +299,14 @@ namespace WpfApp3
         }
 
         private void Window_Closed(object sender, EventArgs e)
-        {
+        {  
             Widow_1.UpdateCoin(TotalCountCoin);
             this.Close();
+        }
+
+        public void UpdateElement(UIElement element,Point offset)
+        {
+
         }
     }
 }
