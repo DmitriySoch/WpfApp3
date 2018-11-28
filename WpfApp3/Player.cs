@@ -1,13 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace WpfApp3
 {
-    class Player : GameObjects
+    class Player : CircleGameObject
     {
+        public Player(Image element,Point position)
+        {
+            this.Element = element;
+            Position = position;
+            Radius = element.ActualHeight / 2.0;
+        }
 
+        public void Jump(double heightJump)
+        {
+            Position = new Point(Position.X,Position.Y - heightJump);
+        }
     }
 }

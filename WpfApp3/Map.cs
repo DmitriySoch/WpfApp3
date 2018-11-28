@@ -9,7 +9,7 @@ namespace WpfApp3
     {
         private readonly HashSet<GameObjects> gameMap;
         Player player;
-        Point mapSize;
+        Point mapSize;        
 
         public Map(double height, double width)
         {
@@ -25,25 +25,47 @@ namespace WpfApp3
 
         public IEnumerable<GameObjects> GetUnusedItems()
         {
-            foreach(var item in gameMap.Where(x => !x.OnHorizontal(mapSize)))
+            foreach (var item in gameMap.Where(x => !x.OnHorizontal(mapSize)))
             {
                 gameMap.Remove(item);
                 yield return item;
             }
         }
 
+        public int CheckCollised()
+        {
+            var count = 0;
+            foreach (var item in gameMap)
+            {
+                if (item is Coins)
+                {
+                    var circle = item as CircleGameObject;
+                    if (player.IsCollided(circle))
+                        count++;
+                }
+                else if(item is SaveZona)
+                {
+                    var rectangle = item as SaveZona;
+                    if (player.IsCollided(rectangle))
+                        throw new Exception("Произошло столкновение с трубой");
+                }
+            }
+            return count;
+        }
+
         public void MoveUpPlayer(double offset)
         {
             if (player == null)
                 throw new ArgumentException();
-            player.position = new Point(player.position.X, player.position.Y - offset);
+            player.Jump(offset);
         }
 
-        public void UpdateMap()
+        public IEnumerable<GameObjects> UpdateMap()
         {
             foreach (var item in gameMap)
             {
                 item.UpdatePosition();
+                yield return item;
             }
         }
     }

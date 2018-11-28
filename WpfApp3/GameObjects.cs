@@ -5,16 +5,25 @@ namespace WpfApp3
 {
     class GameObjects
     {
-        public Point position;
-        public Point ofsetPosition;
-        public readonly UIElement Element; 
+        private protected Point Position { get; set; }
+        private protected Point Velocity { get; set; }
+        private protected UIElement Element { get; set; }
 
-        public bool OnVertical(Point mapSize) => position.Y > 0 && position.Y < mapSize.Y;
+        public void UpdatePosition()
+        {
+            Position = new Point(Position.X + Velocity.X, Position.Y + Velocity.Y);
+        }
 
-        public bool OnHorizontal(Point mapSize) => position.X > 0 && position.X < mapSize.X;
+        public bool OnVertical(Point mapSize) => Position.Y > 0 && Position.Y < mapSize.Y;
+
+        public bool OnHorizontal(Point mapSize) => Position.X > 0 && Position.X < mapSize.X;
 
         public bool IsObjectTouch(GameObjects secondElement) => throw new NotImplementedException();
 
-        public void UpdatePosition() => position = new Point(position.X + ofsetPosition.X, position.Y + ofsetPosition.Y);
+        public static Point GenerateHorizontalPosition(Point dimensions)
+        {
+            var multiplier = new Random().Next(100, 900) / 1000.0;
+            return new Point(dimensions.X, multiplier * dimensions.Y);
+        }
     }
 }

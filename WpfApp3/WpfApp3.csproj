@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Fasticon-Twitter-Block-Bird.ico</ApplicationIcon>
@@ -55,13 +57,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleGameObject.cs" />
     <Compile Include="Coins.cs" />
     <Compile Include="GameObjects.cs" />
-    <Compile Include="Obstacles.cs" />
+    <Compile Include="SaveZona.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="MainWidow_1.xaml.cs">
       <DependentUpon>MainWidow_1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RectangleGameObject.cs" />
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
