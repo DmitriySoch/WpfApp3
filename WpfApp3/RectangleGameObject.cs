@@ -2,7 +2,7 @@
 
 namespace WpfApp3
 {
-    class RectangleGameObject:GameObjects
+    public class RectangleGameObject:GameObjects
     {
         public Point SizeRectangele { get; private protected set; } 
 

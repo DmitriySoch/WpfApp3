@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace WpfApp3
 {
-    class Coins : CircleGameObject
+    public class Coins : CircleGameObject
     {
         public Coins(Point dimensions)
         {

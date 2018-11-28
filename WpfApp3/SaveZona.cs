@@ -2,7 +2,7 @@
 
 namespace WpfApp3
 {
-    class SaveZona : RectangleGameObject
+    public class SaveZona : RectangleGameObject
     {
         public SaveZona(Point dimensions) => this.Position = GenerateHorizontalPosition(dimensions);
     }

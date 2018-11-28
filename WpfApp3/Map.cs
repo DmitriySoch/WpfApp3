@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace WpfApp3
 {
-    class Map
+    public class Map
     {
         private readonly HashSet<GameObjects> gameMap;
         Player player;
@@ -25,7 +25,8 @@ namespace WpfApp3
 
         public IEnumerable<GameObjects> GetUnusedItems()
         {
-            foreach (var item in gameMap.Where(x => !x.OnHorizontal(mapSize)))
+            var collection = gameMap.Where(x => !x.OnHorizontal(mapSize)).ToArray();
+            foreach (var item in collection)
             {
                 gameMap.Remove(item);
                 yield return item;

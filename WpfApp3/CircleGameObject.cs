@@ -3,9 +3,8 @@ using System.Windows;
 
 namespace WpfApp3
 {
-    class CircleGameObject : GameObjects
+    public class CircleGameObject : GameObjects
     {
-
         private protected double Radius { get; set; }
         
         public bool IsCollided(RectangleGameObject rectangle)
@@ -31,8 +30,8 @@ namespace WpfApp3
                     }
                     else
                     {
-                        return LOL(Position,rectanglePos.X+rectangle.SizeRectangele.X/2,Radius, 
-                            rectanglePos.Y + rectangle.SizeRectangele.Y / 2, rectanglePos.Y - rectangle.SizeRectangele.Y / 2))
+                        return LOL(Position, rectanglePos.X + rectangle.SizeRectangele.X / 2, Radius,
+                            rectanglePos.Y + rectangle.SizeRectangele.Y / 2, rectanglePos.Y - rectangle.SizeRectangele.Y / 2);
                     }
                 }
             }

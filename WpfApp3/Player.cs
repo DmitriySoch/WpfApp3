@@ -3,13 +3,13 @@ using System.Windows.Controls;
 
 namespace WpfApp3
 {
-    class Player : CircleGameObject
+    public class Player : CircleGameObject
     {
-        public Player(Image element,Point position)
+        public Player(Image element,Point position,double height)
         {
             this.Element = element;
             Position = position;
-            Radius = element.ActualHeight / 2.0;
+            Radius = height/2;            
         }
 
         public void Jump(double heightJump)

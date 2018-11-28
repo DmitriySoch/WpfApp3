@@ -73,7 +73,7 @@ namespace WpfApp3
             };
             Canvas.Children.Add(coin);
             Canvas.SetLeft(coin, Canvas.ActualWidth - 10);
-            Canvas.SetTop(coin, Canvas.ActualHeight * Map.GeneratePosition());
+            //Canvas.SetTop(coin, Canvas.ActualHeight * Map.GeneratePosition());
             Panel.SetZIndex(coin, 1);
             Coins.Enqueue(coin);
             if (allOtherElements.Count > 0 && Canvas.GetLeft(allOtherElements.Peek()) < 0)
@@ -147,7 +147,7 @@ namespace WpfApp3
         }
         private void UpdateMap()
         {
-            var centralPos = ActualHeight * Map.GeneratePosition();
+            //var centralPos = ActualHeight * Map.GeneratePosition();
 
             var pipe_Up = new Image() {
                 Width = ActualWidth / 10,
@@ -179,9 +179,9 @@ namespace WpfApp3
             Canvas.SetLeft(hole, Canvas.ActualWidth - 10);
             Canvas.SetLeft(pipe_Down, Canvas.ActualWidth - 10);
 
-            Canvas.SetTop(pipe_Up, centralPos - hole.Height / 2 - pipe_Up.Height);
-            Canvas.SetTop(hole, centralPos - hole.Height / 2);
-            Canvas.SetTop(pipe_Down, centralPos + hole.Height / 2);
+            //Canvas.SetTop(pipe_Up, centralPos - hole.Height / 2 - pipe_Up.Height);
+            //Canvas.SetTop(hole, centralPos - hole.Height / 2);
+            //Canvas.SetTop(pipe_Down, centralPos + hole.Height / 2);
 
             if (Canvas.GetLeft(queueOfPipe.Peek()) < 0)
             {

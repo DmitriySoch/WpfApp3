@@ -3,16 +3,13 @@ using System.Windows;
 
 namespace WpfApp3
 {
-    class GameObjects
+    public class GameObjects
     {
-        private protected Point Position { get; set; }
-        private protected Point Velocity { get; set; }
-        private protected UIElement Element { get; set; }
+        public Point Position { get; private protected set; }
+        public Point Velocity { get; private protected set; }
+        public UIElement Element { get; private protected set; }
 
-        public void UpdatePosition()
-        {
-            Position = new Point(Position.X + Velocity.X, Position.Y + Velocity.Y);
-        }
+        public void UpdatePosition() => Position = new Point(Position.X + Velocity.X, Position.Y + Velocity.Y);
 
         public bool OnVertical(Point mapSize) => Position.Y > 0 && Position.Y < mapSize.Y;
 
