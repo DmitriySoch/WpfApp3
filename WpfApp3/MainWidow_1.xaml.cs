@@ -28,8 +28,7 @@ namespace WpfApp3
 
         private void CreateNewGame()
         {
-            var win = new MainWindow(nameBird + "Up.png", nameBird + "Down.png", this);
-            win.ShowDialog();
+            var game = new Game.Game(nameBird + "Up.png", nameBird + "Down.png", this);
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

@@ -9,18 +9,42 @@ namespace WpfApp3
     {
         private readonly HashSet<GameObjects> gameMap;
         Player player;
-        Point mapSize;        
+        public Point mapSize;
+        HashSet<int> allObjectId;
 
-        public Map(double height, double width)
+        public Map(double width, double height)
         {
             mapSize = new Point(height, width);
             gameMap = new HashSet<GameObjects>();
+            allObjectId = new HashSet<int>();
+        }
+
+        public Player CreatePlayer()
+        {
+            var pos = new Point((mapSize.X - 600) / 4 + 300, mapSize.Y / 2);
+            player = new Player(pos, new Size(100, 100), new Vector(0, 0), GetId());
+            gameMap.Add(player);
+            return player;
         }
 
         public void Add<T>(T value) where T : GameObjects
         {
-            player = player ?? value as Player;
+            value.Id = GetId();
             gameMap.Add(value);
+        }
+
+        public int GetId()
+        {
+            var rnd = new Random();
+            while (true)
+            {
+                var newId = rnd.Next(100000);
+                if (!allObjectId.Contains(newId))
+                {
+                    allObjectId.Add(newId);
+                    return newId;
+                }
+            }
         }
 
         public IEnumerable<GameObjects> GetUnusedItems()
@@ -29,6 +53,7 @@ namespace WpfApp3
             foreach (var item in collection)
             {
                 gameMap.Remove(item);
+                allObjectId.Remove(item.Id);
                 yield return item;
             }
         }
@@ -44,7 +69,7 @@ namespace WpfApp3
                     if (player.IsCollided(circle))
                         count++;
                 }
-                else if(item is SaveZona)
+                else if (item is SaveZona)
                 {
                     var rectangle = item as SaveZona;
                     if (player.IsCollided(rectangle))
@@ -61,11 +86,13 @@ namespace WpfApp3
             player.Jump(offset);
         }
 
+        public GameObjects GetPlayerIfHeDead() => !player.OnVertical(mapSize) ? player : null;       
+
         public IEnumerable<GameObjects> UpdateMap()
         {
             foreach (var item in gameMap)
             {
-                item.UpdatePosition();
+                item.UpdateSpeed();
                 yield return item;
             }
         }

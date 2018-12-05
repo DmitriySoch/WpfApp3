@@ -57,15 +57,16 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CircleGameObject.cs" />
-    <Compile Include="Coins.cs" />
-    <Compile Include="GameObjects.cs" />
-    <Compile Include="SaveZona.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Game\CircleGameObject.cs" />
+    <Compile Include="Game\Coins.cs" />
+    <Compile Include="Game\GameObjects.cs" />
+    <Compile Include="Game\SaveZona.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\Game.cs" />
     <Compile Include="MainWidow_1.xaml.cs">
       <DependentUpon>MainWidow_1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RectangleGameObject.cs" />
+    <Compile Include="Game\RectangleGameObject.cs" />
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,7 +89,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Map.cs" />
+    <Compile Include="Game\Map.cs" />
     <Compile Include="Programm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -158,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Fasticon-Twitter-Block-Bird.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\truba_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
