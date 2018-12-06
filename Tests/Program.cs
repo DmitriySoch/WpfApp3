@@ -58,15 +58,14 @@ namespace Tests
             Assert.AreEqual(result, firstCircle.IsCollided(secondCircle));
         }
 
-        [TestCase(100, 100, 100, 100, 20, 100, 100, true)]
+        [TestCase(50, 50, 100, 100, 20, 100, 100, true)]
         [TestCase(100, 100, 1000, 100, 20, 100, 100, false)]
-        [TestCase(100, 100, 100, 100, 2, 110, 110, false)]
+        [TestCase(100, 100, 100, 100, 2, 110, 110, true)]
         [TestCase(100, 100, 100, 100, 200, 100, 100, true)]
         [TestCase(10, 10, 100, 100, 100, 100, 100, true)]
         [TestCase(100,100,100,100,50,100,80,true)]
-        [TestCase(10,10,100,100,10,90,90,true)]
+        [TestCase(10,10,100,100,10,90,90,false)]
         [TestCase(10,10,100,100,10,111,110,false)]
-        [TestCase(0,0,0,0,0,0,0,false)]
         public static void Test_RectangleTouchCircle(int w, int h, int x1, int y1, int r, int x2, int y2, bool result)
         {
             var rect = new RectangleGameObject() { Size = new Size(w, h), Position = new Point(x1, y1) };
